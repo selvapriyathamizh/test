@@ -18,7 +18,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: centos-latest
+    runs-on: centos-7
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -27,7 +27,8 @@ jobs:
 
       - name: Install ansible and ansible lint
         run: |
-          sudo yum install ansible -y
+          sudo yum install -y epel-release
+          sudo yum install -y python3 python3-pip
           pip3 install ansible ansible-lint
 
       # Runs a single command using the runners shell
