@@ -18,12 +18,17 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: centos-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+
+      - name: Install ansible and ansible lint
+        run: |
+          sudo yum install ansible -y
+          pip3 install ansible ansible-lint
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -34,3 +39,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo Welcome.
+          
+      - name: Verifying the ansible lint
+        run: ansible-lint
