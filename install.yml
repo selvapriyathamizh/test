@@ -1,6 +1,7 @@
 ---
 - name: Install httpd 
   hosts: localhost
+  become: yes
   tasks:
     - name: Install httpd service
       apt:
