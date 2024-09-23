@@ -40,6 +40,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo Welcome.
+      - name: find andible version
+        run: ansible --version
           
       - name: Verifying the ansible lint
         run: ansible-lint
